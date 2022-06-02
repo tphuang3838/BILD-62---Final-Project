@@ -1,0 +1,30 @@
+from time import sleep
+from random import randint
+
+def questions(question, options, correct, amount):
+    money = 0
+    print(question)
+    print(options)
+    for answer in options:
+        print(answer)
+        user_answer = input("What is the correct answer?")
+        if user_answer.upper() == correct:
+            print("Good Job!")
+            money += amount
+        else:
+            print("Oops!Game Over!")
+            money = 0
+            
+            
+            
+           question1 = "FIRST, THE $50 QUESTION: What is the biggest currency in Europe?"
+           options1 = "(A) Afro (B) Asio (C) Australio (D) Euro "
+           correct1 = "D"
+           amount1 = 50
+           audience1 = ["A: 0%", "B: 2%", "C: 0%", "D: 98%"]
+
+
+           question2 = "THE $100 QUESTION: Which of these kills its victims by constriction?"
+           options2 = ["A) Andalucia B) Anaconda C) Andypandy D) Annerobinson"]
+           correct2 = "B"
+           amount2 = 100
