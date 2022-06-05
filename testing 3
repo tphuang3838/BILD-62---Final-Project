@@ -1,0 +1,106 @@
+import pandas as pd  # use pandas to read our file
+import random  # use random to randomly pick strings from our lists
+
+uestion_list = [] # create an empty list of questions
+options_list = []  # create an empty list of options
+answer_list = []   # create an empty list of answers
+amount_list = []   # create an empty list of the amount of money
+
+right_answer_response = ['Good Job!','Excellent!','Right!']
+wrong_answer_response = ['Oops, wrong answer!','Naah' ]
+
+class Questions():
+    '''This creates a class for our question sets'''
+    
+    def __init__(self, question, options, answer, amount):
+        '''this method adds the question, the options, 
+           the answer, and the amount of money of each 
+           question set into their corresponding lists;
+           all attributes of the same question set 
+           share the same index in their lists'''
+        
+        self.question = question 
+        question_list.append(question) # add the question to its list
+        
+        self.options = options
+        options_list.append(options) # add the options to its list
+        
+        self.answer = answer
+        answer_list.append(answer) # add the answer to its list
+        
+        self.amount = amount
+        amount_list.append(amount) # add the amount to its list
+
+# below are a few examples of questions 
+# please add ours following this format
+
+Q1 = Questions('which is a?',      # the question 
+               '(a)a; (b)b',       # the available options
+               'a',                # the correct answer
+               50)                 # the amount of money
+
+Q2 = Questions('which is b?',
+               '(a)a; (b)b',
+               'b',
+               50)
+
+Q3 = Questions('which is c?',
+               '(a)a; (b)b; (c)c', 
+               'c',
+               50)
+
+Q4 = Questions('blablablabla',
+              'No options this time. Type out your answer (which is 8)!',
+               '8', 
+               50)
+
+def game():
+    '''this function starts the game by looping through 
+       each question in the question list'''
+    
+    money = 0     # the play starts the game with 0 dollar
+    print('Ready??? GO!')
+    
+    for question in question_list:
+        print(question)      # show the question 
+        print('Options:')
+        print(options_list[question_list.index(question)]) 
+        # pull out the corresponding options as they share the same index
+        user_answer1 = input("Your thought:")  
+        print('')    # add space to sectionalize each round of the game 
+        
+        if user_answer1.lower() == answer_list[question_list.index(question)]:   
+        # test if the answer is right
+            print(random.choice(right_answer_response))
+            money = money + amount_list[question_list.index(question)]
+            print('You have gained',money, "!")
+            print('')
+            
+            if question_list.index(question) == 3: # depend on how many questions we have
+            # end the game by testing if the question being asked is the final one
+                print('You have finished all of them!')
+                print('Good Job!')
+                print('You have gained a total of', money , '!')
+                print('Thank you for playing!')
+                break  
+                
+            user_answer2 = input("Continue? Y or N:") # check if the player wants to continue
+            print('')
+            
+            if user_answer2.lower() == 'y':    # continue the game as the user wishes
+                continue
+                
+            elif user_answer2.lower() != 'y':   # end the game as the user wishes
+                print('Thank you for playing!')
+                break
+                
+        elif user_answer1 != answer_list[question_list.index(question)]:
+        # end the game if the anwer is wrong
+            print(random.choice(wrong_answer_response))
+            print('Gameover')
+
+# test the code!
+game()
+            print('Thank you for playing!')
+            break
+            
