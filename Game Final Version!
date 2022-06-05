@@ -1,0 +1,110 @@
+# the section below imports packages and file
+
+import pandas as pd  # to read our file
+import random        # to randomly pick response from our lists
+question_file = pd.read_csv('BILD_62_Course_Project_Questions.csv')
+df_question_file = pd.DataFrame(question_file)
+
+# the section below prepares the response for right or wrong answers
+
+right_answer_response = ['Wow! You’re smarter than you look.',
+                         'Okay Smarty-Pants, good job.',
+                         'Woah, maybe you are the chosen one.',
+                         'Fantastic!',
+                         'Both physically and mentally present today, huh?',
+                         'I mean you might as well take over the world with this much knowledge']
+
+wrong_answer_response = ['OOF!',
+                         'And off the cliff the train goes!',
+                         'Wow, you must be the type of person to forget when the War of 1814 occurred.',
+                         'And the smarty lost their pants, again.',
+                         'Nice try, but NO!',
+                         'Uhhhhh, I thought this was common knowledge.',
+                         'See ya later freeloader!']
+
+# the section below prepares the list of questions, options, answers, and amount of points
+
+question_list = []  # create an empty list of questions
+options_list = []   # create an empty list of options
+answer_list = []    # create an empty list of answers
+amount_list = []    # create an empty list of the amount of points
+
+for questions in df_question_file['Questions']:
+    question_list.append(questions)    # add the question to its list
+    
+for options in df_question_file['Options']:
+    options_list.append(options)       # add the options to its list
+    
+for answers in df_question_file['Answer']:
+    answer_list.append(answers)        # add the options to its list
+    
+for amount in df_question_file['Amount']:
+        amount_list.append(amount)     # add the amount to its list
+       
+# the section below prepares the function to run the game
+
+def game():
+    '''this function initiates the game by looping through 
+       each question in the question list and matching the options,
+       answers, and amount of points with it'''
+    
+    point = 0                # the play starts the game with 0 point
+    print('Ready??? GO!')
+    
+    for question in question_list:
+        print(question)      # show the question 
+        print('Options:')
+        print(options_list[question_list.index(question)]) 
+        # pull out the corresponding options as they share the same index
+        user_answer1 = input("Your thought:")  
+        print('')            # add space to sectionalize each round of the game 
+        
+        if user_answer1.lower() == answer_list[question_list.index(question)]:   
+        # test if the answer is right
+            print('Correct!')
+            print(random.choice(right_answer_response))
+            point = point + amount_list[question_list.index(question)]
+            print('You have gained', point, "points!")
+            print('')
+            
+            if question_list.index(question) == 14: # the index of the final question
+            # end the game if the final question is answered correctly
+                print('You have answered all of questions correctly!')
+                print('Good Job!')
+                print('Thank you for playing!')
+                break  
+                
+            user_answer2 = input("Continue? Y or N:") 
+            # check if the player wants to continue
+            print('')
+            
+            if user_answer2.lower() == 'y':    
+                continue
+                
+            elif user_answer2.lower() != 'y':
+                print('What???')
+                print('You have gained a total of', point, 'points!')
+                user_answer3 = input("Do you really want to quit? Y or N:") 
+                
+                if user_answer3.lower() != 'y':
+                    print('Yeeeaaah!')
+                    print('Next Question!')
+                    print('')
+                    continue
+                    
+                elif user_answer3.lower() == 'y':
+                    print('Alright...')
+                    print('Thank you for playing!')
+                    break
+                
+        elif user_answer1 != answer_list[question_list.index(question)]:
+        # end the game if the anwer is wrong
+            print(random.choice(wrong_answer_response))
+            print('Gameover')
+            print('Thank you for playing!')
+            break
+            
+            
+# test the code!
+
+game()
