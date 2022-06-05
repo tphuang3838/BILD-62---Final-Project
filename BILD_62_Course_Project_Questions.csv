@@ -1,9 +1,9 @@
 ﻿Questions,Options,Answer,Amount
-The derivative of sin(x) is cos(x).,(T); (F),T,50
-Aristotle was Socrates’ prized student.,(T); (F),F,50
-The Internet was created by a U.S. military research agency.,(T); (F),T,50
-Prokaryotic cells cannot perform mitosis or meiosis.,(T); (F),T,50
-Vincent Van Gogh only sold one painting in his lifetime.,(T); (F),T,50
+The derivative of sin(x) is cos(x). True or Flase?,(T); (F),t,50
+Aristotle was Socrates’ prized student. True or Flase?,(T); (F),f,50
+The Internet was created by a U.S. military research agency. True or Flase?,(T); (F),t,50
+Prokaryotic cells cannot perform mitosis or meiosis. True or Flase?,(T); (F),t,50
+Vincent Van Gogh only sold one painting in his lifetime. True or Flase?,(T); (F),t,50
 In which of the following situations would you use the comment format of surrounding the content by three single quotes (''') on each side?,(a) When the comment contains special characters.; (b) When the comment is too long to be contained in a single line.; (c) When you need help or information.,b,100
 A Newton is equal to what?,(a) Kilogram-meter per second squared; (b) Meter per second squared; (c) Kilogram-meter per second,a,100
 How many bones does an adult human skeleton have?,(a) 200; (b) 204; (c) 206,c,100
@@ -13,4 +13,4 @@ Which of these nations was neutral in World War I?,(a) Germany; (b) Norway; (c) 
 Which two religions started in India?,(a) Hinduism and Judaism; (b) Christianity and Buddhism; (c) Buddhism and Hinduism; (d) Judaism and Islam,c,150
 Define ‘prowess’.,"(a) (n) - the whole range or sequence; (b) (adj.) - low-priced; (c) (n) - strength, skill, and intrepidity in battle; (d) (adj.) - heedless",c,150
 Which of these cities does not border the Great Lakes?,(a) Toronto; (b) Cleveland; (c) Chicago; (d) Pittsburgh,d,150
-"Riddle: Turn me on my side, I am everything. Cut me in half and I am nothing. What am I?",,8,200
+"Riddle: Turn me on my side, I am everything. Cut me in half and I am nothing. What am I?","No options this time; type it out!",8,200
